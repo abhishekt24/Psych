@@ -1,4 +1,4 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
 public enum GameStatus {
     PLAYERS_JOINING,

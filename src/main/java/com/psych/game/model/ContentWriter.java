@@ -1,6 +1,4 @@
-package com.pscych.game.model;
-
-import org.aspectj.weaver.IClassFileProvider;
+package com.psych.game.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

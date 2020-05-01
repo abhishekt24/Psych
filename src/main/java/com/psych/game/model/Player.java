@@ -1,11 +1,10 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,6 +35,9 @@ public class Player extends User {
     @Getter
     private Set<Game> games = new HashSet<>();
 
+    public  Player(){
+
+    }
     public Player(@NotBlank String alias, String psychFaceUrl, String picUrl) {
         this.alias = alias;
         this.psychFaceUrl = psychFaceUrl;

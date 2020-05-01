@@ -1,5 +1,7 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,15 +15,18 @@ import java.io.Serializable;
 import java.util.Date;
 
 @MappedSuperclass
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.StringIdGenerator.class,
+        property = "id"
+)
 @EntityListeners(AuditingEntityListener.class)
 public abstract class Auditable implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "sequence" , strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "sequence" , allocationSize = 10)
+    @GeneratedValue(strategy = GenerationType.TABLE )
     @Getter
     @Setter
-    private Long id;
+    private long id;
 
     @Column(nullable = false , updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -35,5 +40,5 @@ public abstract class Auditable implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Setter
     @Getter
-    private Date updatedDate;
+    private Date updatedDate = new Date();
 }

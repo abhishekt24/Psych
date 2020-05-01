@@ -1,7 +1,6 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ public class Question extends Auditable {
     @NotNull @Getter @Setter
     private String question;
 
-    @NonNull @Getter @Setter
+    @NotNull @Getter @Setter
     private String correctAnswer;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
@@ -27,10 +26,13 @@ public class Question extends Auditable {
     @Getter @Setter
     private GameMode gameMode;
 
-    public Question(@NotNull String question, @NonNull String correctAnswer, Set<EllenAnswer> ellenAnswers, GameMode gameMode) {
+    public Question(@NotNull String question, @NotNull String correctAnswer, GameMode gameMode) {
         this.question = question;
         this.correctAnswer = correctAnswer;
-        this.ellenAnswers = ellenAnswers;
         this.gameMode = gameMode;
+    }
+
+    public  Question(){
+
     }
 }

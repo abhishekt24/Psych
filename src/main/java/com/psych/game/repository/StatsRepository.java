@@ -1,6 +1,6 @@
-package com.pscych.game.repository;
+package com.psych.game.repository;
 
-import com.pscych.game.model.Stats;
+import com.psych.game.model.Stats;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StatsRepository extends JpaRepository<Stats,Long> {

@@ -1,11 +1,10 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 

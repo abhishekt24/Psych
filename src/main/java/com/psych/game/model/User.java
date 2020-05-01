@@ -1,4 +1,4 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +11,16 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User extends Auditable {
 
+    public User(){
+
+    }
+
+    public User(User user) {
+        this.email = user.email;
+        this.roles = user.roles;
+        this.saltedHashedPassword =
+    }
+
     @Column(unique = true)
     @Getter
     @Setter
@@ -18,7 +28,7 @@ public class User extends Auditable {
 
     @Getter
     @Setter
-    private String staleHashedPassword;
+    private String saltedHashedPassword;
 
     @ManyToMany
     @Getter

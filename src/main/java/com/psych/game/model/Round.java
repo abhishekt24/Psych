@@ -1,12 +1,10 @@
-package com.pscych.game.model;
+package com.psych.game.model;
 
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.aspectj.weaver.patterns.TypePatternQuestions;
 
 import javax.persistence.*;
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
