@@ -1,5 +1,6 @@
 package com.psych.game.model;
 
+import com.psych.game.exceptions.InvalidGameActionException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +12,6 @@ import java.util.*;
 @Table(name = "game")
 public class Game extends Auditable{
 
-
-    public Game(){
-
-    }
 
     @ManyToMany
     @Getter
@@ -51,5 +48,20 @@ public class Game extends Auditable{
     @Getter @Setter
     private Set<Player> readyPlayers;
 
+    public Game(){
 
+    }
+    public Game(GameMode gameMode, int numRounds, Boolean hasEllen, @NotNull Player leader) {
+        this.gameMode = gameMode;
+        this.numRounds = numRounds;
+        this.hasEllen = hasEllen;
+        this.leader = leader;
+        this.players.add(leader);
+    }
+
+    public void addPlayer(Player player) throws InvalidGameActionException{
+        if(!gameStatus.equals(GameStatus.PLAYERS_JOINING))
+            throw new InvalidGameActionException("Can't join after the game has started");
+        players.add(player);
+    }
 }
